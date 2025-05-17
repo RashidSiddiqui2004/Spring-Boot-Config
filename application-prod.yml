@@ -10,14 +10,14 @@ spring:
       ddl-auto: validate  # Do not auto-update schema in production
     show-sql: false
 
-server:
-  port: 8080
+  server:
+    port: 8080
+  
+  logging:
+    level:
+      root: WARN
+      org.springframework: WARN
 
-logging:
-  level:
-    root: WARN
-    org.springframework: WARN
-
-app:
-  env: production
+   application: 
+        name: CONFIG-PROD
 
