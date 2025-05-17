@@ -1,25 +1,19 @@
-spring:
-  datasource:
-    url: jdbc:mysql://localhost:3306/dev_db
-    username: dev_user
-    password: dev_password
-    driver-class-name: com.mysql.cj.jdbc.Driver
-
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-    properties:
-      hibernate:
-        format_sql: true
-
 server:
-  port: 8081
-
-logging:
-  level:
-    root: DEBUG
-    org.springframework.web: DEBUG
-
-app:
-  env: development
+    port: 8081
+spring: 
+    application: 
+        name: CONFIG-DEV
+    
+    cloud:
+        config:
+            server:
+                git:
+                    uri: https://github.com/RashidSiddiqui2004/Spring-Boot-Config
+                    clone-on-start: true
+                health:
+                    repositories:
+                        myservice:
+                            label: mylabel
+                        myservice-dev:
+                            name: myservice
+                            profiles: development
