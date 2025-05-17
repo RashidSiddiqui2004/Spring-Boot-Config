@@ -1,1 +1,12 @@
-
+server:
+    port: 8081
+spring: 
+    application: 
+        name: CONFIG-SERVER
+    
+    cloud:
+        config:
+            server:
+                git:
+                    uri: https://github.com/RashidSiddiqui2004/Spring-Boot-Config
+                    clone-on-start: true
