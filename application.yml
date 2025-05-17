@@ -1,15 +1,19 @@
- spring:
-  profiles:
-    active: dev  
-
 server:
-  port: 8080
-
-logging:
-  level:
-    root: INFO
-    com.yourapp: DEBUG
-
-app:
-  name: MySpringBootApp
-  description: Default config file
+    port: 8081
+spring: 
+    application: 
+        name: CONFIG-DEFAULT
+    
+    cloud:
+        config:
+            server:
+                git:
+                    uri: https://github.com/RashidSiddiqui2004/Spring-Boot-Config
+                    clone-on-start: true
+                health:
+                    repositories:
+                        myservice:
+                            label: mylabel
+                        myservice-dev:
+                            name: myservice
+                            profiles: development
